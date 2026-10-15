@@ -12,7 +12,8 @@ permissions:
 jobs:
   lint:
     name: Test/Lint
-    runs-on: ubuntu-latest
+    # Конкретна версія образу раннера, а не рухомий ubuntu-latest.
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -25,7 +26,7 @@ jobs:
 
   build:
     name: Build/Package
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Образ збирається лише тоді, коли перевірки пройшли.
     needs: lint
     steps:
