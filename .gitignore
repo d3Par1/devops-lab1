@@ -1,0 +1,11 @@
+# Службові каталоги інструментів, не частина проєкту
+.claude/
+.playwright-mcp/
+
+# Terraform: кеш провайдерів, стан і файл, який створює сам Terraform.
+# .terraform.lock.hcl навпаки комітимо: він фіксує версії провайдерів.
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+terraform/devops_iac_output.txt
