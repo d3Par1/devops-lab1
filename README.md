@@ -1,9 +1,23 @@
 # DevOps Pipeline Demo
 
 [![CI](https://github.com/d3Par1/devops-lab1/actions/workflows/main.yml/badge.svg)](https://github.com/d3Par1/devops-lab1/actions/workflows/main.yml)
+[![lab2-docker](https://github.com/d3Par1/devops-lab1/actions/workflows/lab2-docker.yml/badge.svg)](https://github.com/d3Par1/devops-lab1/actions/workflows/lab2-docker.yml)
 
-Лабораторна робота № 1 з дисципліни «Технології DevOps».
+Лабораторні роботи № 1 і № 2 з дисципліни «Технології DevOps».
 Виконав: Степаненко Назар Юрійович, ТВ-43, № 14 у списку групи.
+
+## ЛР2: контейнеризація (`lab2-docker/`)
+
+Двоетапний образ nginx без root із HEALTHCHECK, `compose.yaml` зі smoke-тестом і конвеєр
+`.github/workflows/lab2-docker.yml`, що публікує перевірений образ у GHCR:
+
+```bash
+docker run -d -p 8080:80 ghcr.io/d3par1/hello-devops:2.0.2      # готовий образ з реєстру
+docker compose -f lab2-docker/compose.yaml up -d --build --wait  # або зібрати локально
+docker compose -f lab2-docker/compose.yaml --profile test run --rm smoke
+```
+
+## ЛР1
 
 | Завдання | Що в репозиторії |
 |---|---|
