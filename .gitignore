@@ -9,3 +9,7 @@
 *.tfstate.*
 crash.log
 terraform/devops_iac_output.txt
+
+# ЛР2: залежності й результат збірки сайту створюються в Docker, не в репозиторії
+lab2-docker/node_modules/
+lab2-docker/dist/
