@@ -32,9 +32,11 @@ ENV APP_ENV=production \
     APP_VERSION=${APP_VERSION} \
     NGINX_ENVSUBST_FILTER=^APP_
 
+# Оновлення безпеки пакетів Alpine, що вийшли після збірки базового образу (Trivy).
 # Підготовка до роботи без root: pid-файл у /tmp, кеш і conf.d належать nginx,
 # директива user не потрібна, два воркери замість одного на кожне ядро хоста.
-RUN sed -i -e 's,^pid .*,pid /tmp/nginx.pid;,' \
+RUN apk upgrade --no-cache \
+ && sed -i -e 's,^pid .*,pid /tmp/nginx.pid;,' \
            -e '/^user /d' \
            -e 's/^worker_processes .*/worker_processes 2;/' /etc/nginx/nginx.conf \
  && rm /etc/nginx/conf.d/default.conf \
