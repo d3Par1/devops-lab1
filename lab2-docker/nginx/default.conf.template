@@ -16,6 +16,10 @@ server {
 
     location / {
         try_files $uri $uri/ =404;
+        # Cache-Control: no-cache - браузер щоразу перевіряє ETag і отримує нову
+        # версію сторінки після розгортання (expires, а не add_header: add_header
+        # усередині location скасував би заголовки X-App-* рівня server)
+        expires -1;
     }
 
     # Ендпоінт для HEALTHCHECK і перевірок з compose / CI

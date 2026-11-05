@@ -1,6 +1,6 @@
 {
   "name": "hello-devops-site",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": true,
   "description": "Static page for DevOps lab 2; validated and minified in the build stage of the Dockerfile",
   "scripts": {
